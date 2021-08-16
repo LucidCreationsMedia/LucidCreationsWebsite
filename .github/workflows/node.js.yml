@@ -4,10 +4,14 @@
 name: Node.js CI
 
 on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
