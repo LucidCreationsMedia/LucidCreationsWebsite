@@ -1,5 +1,13 @@
 {
   "private": true,
+  "name": "lucid-creations-media-website",
+  "homepage": "https://github.com/LucidCreationsMedia/LucidCreationsWebsite",
+  "version": "0.1.0",
+  "author": {
+    "name": "Lucid Creations Media",
+    "url": "https://lucidcreations.media",
+    "email": "social@lucidcreations.media"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
