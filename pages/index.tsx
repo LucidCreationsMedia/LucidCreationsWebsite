@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { Fragment } from 'react'
 
-const IndexPage = () => {
+const IndexPage = (): JSX.Element => {
   return (
     <div>
       <Head>
@@ -18,4 +18,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default IndexPage;
