@@ -279,6 +279,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/engines@npm:2.31.0-32.2452cc6313d52b8b9a96999ac0e974d0aedf88db":
+  version: 2.31.0-32.2452cc6313d52b8b9a96999ac0e974d0aedf88db
+  resolution: "@prisma/engines@npm:2.31.0-32.2452cc6313d52b8b9a96999ac0e974d0aedf88db"
+  checksum: 17d5068e2505875400f9c0095989997b2ed5241894f6735db4cc6e65e98829516b3dedd32159c0a6459a127344046827759e3c8927a2843b9b3e940ea688cb13
+  languageName: node
+  linkType: hard
+
 "@rushstack/eslint-patch@npm:^1.0.6":
   version: 1.0.6
   resolution: "@rushstack/eslint-patch@npm:1.0.6"
@@ -2796,6 +2803,7 @@ fsevents@~2.3.1:
     eslint: ^7.32.0
     eslint-config-next: ^11.0.1
     next: ^11.1.1
+    prisma: ^3.0.2
     react: ^17.0.2
     react-dom: ^17.0.2
     typescript: 4.3.5
@@ -3609,6 +3617,18 @@ fsevents@~2.3.1:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: cd192ec0d0a8e4c6da3bb80e4f62afe336df3f76271ac6deb0e6a36187133b6073a19e9727a1ff108cd8b9982e4768850d413baa71214dd80c7979617dca827a
+  languageName: node
+  linkType: hard
+
+"prisma@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "prisma@npm:3.0.2"
+  dependencies:
+    "@prisma/engines": 2.31.0-32.2452cc6313d52b8b9a96999ac0e974d0aedf88db
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: 916d0c190724eec13a74c8fd68f2a84fde12e841041897cfaf242050a67ae2eef8c54ad5c2823126da7d0cf21d1f8819e5ca7efef82d59271b78dfa326025299
   languageName: node
   linkType: hard
 
