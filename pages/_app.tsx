@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 
-import Head from 'next/head'
+import Head from "next/head";
 import React, { Fragment } from "react";
 
 function LucidCreationWebsite({ Component, pageProps }: AppProps): JSX.Element {
@@ -13,7 +13,7 @@ function LucidCreationWebsite({ Component, pageProps }: AppProps): JSX.Element {
       </Head>
       <Component {...pageProps} />
     </Fragment>
-  )
+  );
 }
 
 export default LucidCreationWebsite;
