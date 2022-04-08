@@ -1,4 +1,10 @@
-# Lucid Creations Media Website
-The new and improved Lucid Creations Media wesbite. Built with typescript on Next.js using GraphQL, Apollo, and Prisma ORM.
+<p align="center">
+  <a href="https://github.com/LucidCreationsMedia/LucidCreationsWebsite/actions/workflows/main.yml"><img alt="CI Status Badge" src="https://github.com/LucidCreationsMedia/LucidCreationsWebsite/actions/workflows/main.yml/badge.svg?branch=main" /></a>
+  <a href="https://github.com/LucidCreationsMedia/LucidCreationsWebsite/actions/workflows/codeql-analysis.yml"><img alt="CodeQL Analysis" src="https://github.com/LucidCreationsMedia/LucidCreationsWebsite/actions/workflows/codeql-analysis.yml/badge.svg?branch=main" /></a>
+</p>
 
-[![Node.js CI](https://github.com/lucid-creations-media/lucid-creations-wesbite/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/lucid-creations-media/lucid-creations-wesbite/actions/workflows/node.js.yml)
+# [Lucid Creations Media Website](https://lucidcreations.media/)
+
+## About
+
+The new and improved Lucid Creations Media website. Built with typescript on Next.js using GraphQL, Apollo, and Prisma ORM.

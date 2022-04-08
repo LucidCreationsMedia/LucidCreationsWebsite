@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 const Footer = (): JSX.Element => {
   return (
@@ -6,7 +6,7 @@ const Footer = (): JSX.Element => {
       <hr />
       <span>{"I'm here to stay (Footer)"}</span>
     </footer>
-  )
+  );
 };
 
 export default Footer;

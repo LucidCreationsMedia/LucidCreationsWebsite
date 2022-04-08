@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import React, { Fragment } from 'react'
+import Head from "next/head";
+import React, { Fragment } from "react";
 
 const IndexPage = (): JSX.Element => {
   return (
@@ -9,13 +9,11 @@ const IndexPage = (): JSX.Element => {
       </Head>
       <Fragment>
         <div>
-          <span>
-            Hello world!!
-          </span>
+          <span>Hello world!!</span>
         </div>
       </Fragment>
     </div>
-  )
-}
+  );
+};
 
 export default IndexPage;
