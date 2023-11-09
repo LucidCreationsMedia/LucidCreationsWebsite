@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "lucid-creations-media-potty-chart",
-  "homepage": "https://lucidcreations.media/introducing-code-name-potty-chart/",
-  "version": "v0.0.9.3-alpha",
+  "name": "lucid-creations-website",
+  "homepage": "https://new.lucidcreations.media/",
+  "version": "0.0.2",
   "author": {
     "name": "Lucid Creations Media",
     "url": "https://lucidcreations.media",
@@ -16,31 +16,34 @@
     "pretty": "prettier --write ."
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.0.2",
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@iconify/react": "^3.2.1",
-    "@types/react": "^18.0.9",
-    "date-fns": "^2.28.0",
-    "formik": "^2.2.9",
-    "framer-motion": "^6.3.3",
-    "next": "12.1.6",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "sharp": "^0.30.4"
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@iconify/react": "^4.1.1",
+    "@reduxjs/toolkit": "^1.9.7",
+    "date-fns": "^2.30.0",
+    "formik": "^2.4.5",
+    "framer-motion": "^10.16.4",
+    "next": "14.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.3",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
-    "@types/node": "^17.0.35",
-    "@typescript-eslint/eslint-plugin": "^5.25.0",
-    "eslint": "^8.16.0",
-    "eslint-config-next": "^12.1.6",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
-    "prettier": "^2.6.2",
-    "prisma": "^3.14.0",
-    "typescript": "^4.6.4"
+    "@types/node": "^20.8.10",
+    "@types/react": "^18.2.34",
+    "@types/react-redux": "^7.1.28",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "<13.4.9",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@4.0.1"
 }

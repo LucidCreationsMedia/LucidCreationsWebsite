@@ -6,24 +6,35 @@ name: Node.js CI
 on:
   # Trigger the workflow on push or pull request,
   push:
-    branches:
-      # All branches
-      - 'main'
+    branches: [main, stable]
   pull_request:
     # These types of PRs
     types: [opened, synchronize, reopened]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x, 16.x, 18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v2
+
+      # NPM
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     cache: 'npm'
+      # - run: npm i
+      # - run: npm run lint
+      # - run: npm run build
+      # # - run: npm run start
+      # - run: npm run test
+
+      # YARN
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: install # will run `yarn install` command
