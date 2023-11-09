@@ -4,7 +4,7 @@
     <a href="https://github.com/LucidCreationsMedia/LucidCreationsWebsite/actions/workflows/njsscan-analysis.yml"><img alt="njsscan sarif" src="https://github.com/LucidCreationsMedia/LucidCreationsWebsite/actions/workflows/njsscan-analysis.yml/badge.svg?branch=main" /></a>
 </p>
 
-# [Lucid Creations Media Website](https://lucidcreations.media/)
+# [Lucid Creations Media Website](https://new.lucidcreations.media/)
 
 ## About
 
