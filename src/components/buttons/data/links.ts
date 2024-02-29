@@ -8,18 +8,13 @@ type Links = LinkObj[];
 
 const links: Links = [
   {
-    href: "https://docs.google.com/document/d/1hrerGKHTO3iach8A-CabtfIB4lyZWlgO8EGTyOCrI2Y",
+    href: "https://docs.google.com/document/d/1y1tbTG6TYoLMEde4XHzInByyHQ0T6Aw2RF6Y4Z7Yabs",
     name: "Roadmap and Progress",
     type: "secondary"
   },
-  {
-    href: "https://lucidcreations.media/lcm-potty-chart/",
-    name: "Official Announcement",
-    type: "secondary"
-  },
-  {
-    type: "ko-fi"
-  },
+  // {
+  //   type: "ko-fi"
+  // },
   {
     href: "https://t.me/LucidCreationsMedia",
     name: "Dev Updates",

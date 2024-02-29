@@ -29,8 +29,7 @@ const AppTheme = extendTheme({
       footer: "#0097a7",
       footerText: "black",
       content: "#2d3748",
-      kofi: "#FF5E5B",
-      twitter: "#1da1f2"
+      kofi: "#FF5E5B"
     },
     loading: {
       overlayBg: "#171923cb",

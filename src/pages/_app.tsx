@@ -13,7 +13,7 @@ function LCMPottyChart({ Component, pageProps }: AppProps): JSX.Element {
       <ChakraProvider theme={AppTheme}>
         <Layout {...pageProps}>
           <Head>
-            <title>{"LCM Potty Chart"}</title>
+            <title>{"LCM Website"}</title>
             <meta
               name="viewport"
               content="width=device-width, user-scalable=yes, initial-scale=1.0"
