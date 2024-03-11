@@ -68,7 +68,7 @@ const WhatIMakeBanner = (): JSX.Element => {
             </HStack>
             <HStack spacing="4">
               <Text fontSize="5xl">
-                <Icon icon="ic:baseline-telegram" />
+                <Icon icon="mdi:youtube" />
               </Text>
               <BrandText type="Text" size="xl" text={"LucidKobold"} />
             </HStack>
