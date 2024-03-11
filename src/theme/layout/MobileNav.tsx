@@ -4,7 +4,8 @@ import {
   Link,
   MenuDivider,
   MenuItem,
-  MenuList
+  MenuList,
+  Text
 } from "@chakra-ui/react";
 import navItems, { NavItem } from "./navItems";
 
@@ -42,7 +43,7 @@ const MobileNav: FC<MobileNavProps> = ({ updateOpen }: MobileNavProps) => {
             <Link onClick={() => updateOpen(false)} href={navItem[1]}>
               {index === 0 ? <MenuDivider /> : <Fragment></Fragment>}
               <Button w="100vw" variant={"nav"} p={0} m="auto">
-                {navItem[0]}
+                <Text>{navItem[0]}</Text>
               </Button>
               <MenuDivider />
             </Link>

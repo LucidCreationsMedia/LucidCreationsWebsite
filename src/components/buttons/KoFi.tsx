@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Link, Button, BoxProps } from "@chakra-ui/react";
+import { Box, Link, Button, BoxProps, Text } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ const KoFi = (): JSX.Element => {
         rel="noopener"
       >
         <Button variant="kofi" leftIcon={<Icon icon="cib:ko-fi" />}>
-          {"Fund The App"}
+          <Text>{"Fund The App"}</Text>
         </Button>
       </Link>
     </MotionBox>

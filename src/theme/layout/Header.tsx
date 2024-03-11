@@ -12,6 +12,7 @@ import { Icon } from "@iconify/react";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import appLogo from "../../../public/images/logo.svg";
+import { fonts } from "../AppTheme";
 
 const Header = (): JSX.Element => {
   const appName = "Lucid Creations Media";
@@ -117,7 +118,7 @@ const Header = (): JSX.Element => {
       >
         <Image height="30" width="30" src={appLogo} alt="App Logo" />
 
-        <Heading as="h1" size="md">
+        <Heading as="h1" size="md" fontFamily={fonts.LCM} fontWeight="400">
           {appName}
         </Heading>
         <Heading color="whiteAlpha.500" as="h2" size="sm">
@@ -151,7 +152,12 @@ const Header = (): JSX.Element => {
               }}
             >
               <Image height="30" width="30" src={appLogo} alt="App Logo" />
-              <Heading as="h1" size="md">
+              <Heading
+                as="h1"
+                size="md"
+                fontFamily={fonts.LCM}
+                fontWeight="400"
+              >
                 {appName}
               </Heading>
               <Heading color="whiteAlpha.500" as="h2" size="sm">

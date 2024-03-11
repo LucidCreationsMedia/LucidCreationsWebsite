@@ -1,5 +1,10 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 // import { createBreakpoints } from "@chakra-ui/theme-tools";
+import "@fontsource/montserrat";
+import "@fontsource/tilt-neon";
+import "@fontsource/anonymous-pro";
+import "@fontsource/kalam";
+import "@fontsource/anybody";
 import buttons from "./components/buttonStyles";
 
 const config: ThemeConfig = {
@@ -15,6 +20,14 @@ const config: ThemeConfig = {
 //   "2xl": "100em",
 // });
 
+const fonts = {
+  heading: `'Tilt Neon', system-ui`,
+  body: `'Montserrat', sans-serif`,
+  mono: `'Anonymous Pro', monospace`,
+  brand: `'Kalam', cursive`,
+  LCM: `'Anybody', system-ui`
+};
+
 const AppTheme = extendTheme({
   config,
   colors: {
@@ -22,6 +35,7 @@ const AppTheme = extendTheme({
       main: "#3138dc",
       primary: "#0068ff",
       secondary: "#0086ff",
+      cosmic: "#314a9e",
       hover: "#00aec1",
       warning: "#ffbd48",
       danger: "#FC8181",
@@ -46,8 +60,10 @@ const AppTheme = extendTheme({
   },
   components: {
     Button: buttons
-  }
+  },
+  fonts
   // breakpoints,
 });
 
 export default AppTheme;
+export { fonts };

@@ -1,3 +1,9 @@
+import "@fontsource/montserrat/500.css";
+import "@fontsource/tilt-neon/400.css";
+import "@fontsource/anonymous-pro/400.css";
+import "@fontsource/kalam/400.css";
+import "@fontsource/anybody/400.css";
+
 import type { AppProps } from "next/app";
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";

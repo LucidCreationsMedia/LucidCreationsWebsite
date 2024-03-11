@@ -1494,6 +1494,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/anonymous-pro@npm:^5.0.12":
+  version: 5.0.12
+  resolution: "@fontsource/anonymous-pro@npm:5.0.12"
+  checksum: 10/3604c041821d7b26664323a5d5a269ee096486e5f66168d37188093eadf57b95064cc2dde1c381134d9661125e911c00d4dee4a61c5441006aead8e0f80c81c2
+  languageName: node
+  linkType: hard
+
+"@fontsource/anybody@npm:^5.0.19":
+  version: 5.0.19
+  resolution: "@fontsource/anybody@npm:5.0.19"
+  checksum: 10/e39d4311232eb92e4189eb8e1e345b19414e6c0706d8d000ba0e3a4411feeb50c17897c57d22405e895a7f40fb04f22faf2ebc1716b96b305ed7803b56c6003d
+  languageName: node
+  linkType: hard
+
+"@fontsource/kalam@npm:^5.0.12":
+  version: 5.0.12
+  resolution: "@fontsource/kalam@npm:5.0.12"
+  checksum: 10/dc4fbd2ff38593c233330dea4d82ec62fd585c05883155a3615c3bb7b78ba62c6ecc3fa4336ee57bd995c475e1921efb01c306a54afdf1d14cbcdb46df52de76
+  languageName: node
+  linkType: hard
+
+"@fontsource/montserrat@npm:^5.0.17":
+  version: 5.0.17
+  resolution: "@fontsource/montserrat@npm:5.0.17"
+  checksum: 10/8d91c3b94eaff379396403b3859f0e8a3b4ab2e44808f6a036c410c8d19d031b7442ee587d1cca38e7389b4f3587af358bf41bf70ec8c62dc4dcb2cb27637a43
+  languageName: node
+  linkType: hard
+
+"@fontsource/tilt-neon@npm:^5.0.4":
+  version: 5.0.4
+  resolution: "@fontsource/tilt-neon@npm:5.0.4"
+  checksum: 10/07b5fac6457b2b14792ba84403f9943b995608d7e3113f9647ffc1635422a2dcd9745585404251cf2cbd9017c35fbeeaa32e38c43551cb1e2a3af159c6564292
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -4078,6 +4113,11 @@ __metadata:
     "@chakra-ui/react": "npm:^2.8.2"
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
+    "@fontsource/anonymous-pro": "npm:^5.0.12"
+    "@fontsource/anybody": "npm:^5.0.19"
+    "@fontsource/kalam": "npm:^5.0.12"
+    "@fontsource/montserrat": "npm:^5.0.17"
+    "@fontsource/tilt-neon": "npm:^5.0.4"
     "@iconify/react": "npm:^4.1.1"
     "@reduxjs/toolkit": "npm:^2.2.1"
     "@types/node": "npm:^20.11.20"

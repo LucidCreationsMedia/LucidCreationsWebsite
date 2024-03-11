@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, HStack, Link } from "@chakra-ui/react";
+import { Button, HStack, Link, Text } from "@chakra-ui/react";
 import navItems, { NavItem } from "./navItems";
 
 const DesktopNav = (): JSX.Element => {
@@ -18,7 +18,9 @@ const DesktopNav = (): JSX.Element => {
       {navItems.map((navItem: NavItem) => {
         return (
           <Link id={"dekstop-" + navItem[0]} key={navItem[0]} href={navItem[1]}>
-            <Button variant="nav">{navItem[0]}</Button>
+            <Button variant="nav">
+              <Text>{navItem[0]}</Text>
+            </Button>
           </Link>
         );
       })}
