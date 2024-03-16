@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Link, Button, BoxProps } from "@chakra-ui/react";
+import { Box, Link, Button, BoxProps, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 interface CustomButtonProps {
@@ -14,7 +14,9 @@ const CustomButton = ({ text, link, type }: CustomButtonProps): JSX.Element => {
   return (
     <MotionBox whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <Link href={link} target="_blank" rel="noopener">
-        <Button variant={type}>{text}</Button>
+        <Button variant={type}>
+          <Text>{text}</Text>
+        </Button>
       </Link>
     </MotionBox>
   );
