@@ -1,6 +1,7 @@
 import { Heading, VStack } from "@chakra-ui/react";
 import React from "react";
 import WhatIMakeBanner from "./WhatIMakeBanner";
+import AboutProject from "./AboutProject";
 
 const TempHero = (): JSX.Element => {
   return (
@@ -13,9 +14,10 @@ const TempHero = (): JSX.Element => {
       alignContent="center"
     >
       <WhatIMakeBanner />
+      <AboutProject />
       <VStack
         w="100%"
-        h="57.2vh"
+        h="36.3vh"
         justifyContent="space-around"
         alignContent="center"
       >
