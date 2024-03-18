@@ -1,5 +1,7 @@
 import React, { FC, ReactNode } from "react";
 import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
+import { store } from "../../redux/store";
 import Header from "../layout/Header";
 import { Box } from "@chakra-ui/layout";
 import Footer from "./Footer";
@@ -15,9 +17,11 @@ const Layout: FC<LayoutProps> = (
 ) => {
   return (
     <Box w="100%">
-      <Header {...pageProps} />
-      <main>{children}</main>
-      <Footer />
+      <Provider store={store}>
+        <Header {...pageProps} />
+        <main>{children}</main>
+        <Footer />
+      </Provider>
     </Box>
   );
 };

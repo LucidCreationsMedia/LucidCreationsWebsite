@@ -1,13 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import calenderReducer from "../features/calender";
-import stickersReducer from "../features/calender/stickers";
-import tutorialReducer from "../features/tutorial";
+import activationTokenReducer from "../features/account/activationToken";
+import profileReducer from "../features/profile";
 
 export const store = configureStore({
   reducer: {
-    calender: calenderReducer,
-    stickers: stickersReducer,
-    tutorial: tutorialReducer
+    activationToken: activationTokenReducer,
+    profile: profileReducer
   }
 });
 

@@ -1,53 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import CustomButton from "../../components/buttons/Custom";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { User } from "next-auth";
+import { populateProfile, removeProfile } from "../../features/profile";
 import {
   Heading,
   HStack,
   Box,
   IconButton,
   Menu,
-  MenuButton
+  MenuButton,
+  Button,
+  Popover,
+  PopoverTrigger,
+  SkeletonCircle,
+  Text,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverFooter
 } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import appLogo from "../../../public/images/logo.svg";
-import { fonts } from "../AppTheme";
+import Image from "next/image";
+import SignOutButton from "../../components/auth/buttons/SingnOutButton";
 
 const Header = (): JSX.Element => {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const appName = "Lucid Creations Media";
   const appVersion = process.env.NEXT_PUBLIC_APP_VERSION_HEADER || "";
-
-  // Add transparency while not at the top of the page.
-  const [transparentNavbar, setTransparentNavbar] = useState<boolean>(false);
-  const lastScroll = useRef<number>(0);
-
-  const handleScroll = (): void => {
-    // Sticky Nav
-    if (window.scrollY >= 20) {
-      setTransparentNavbar(true);
-    } else {
-      setTransparentNavbar(false);
-    }
-
-    // Scroll Position.
-    const currentScroll =
-      window.scrollY || window.pageYOffset || document.body.scrollTop;
-
-    // Update Scroll Position Reference
-    lastScroll.current = currentScroll <= 0 ? 0 : currentScroll;
-    // setScroll(lastScroll.current = currentScroll <= 0 ? 0 : currentScroll)
-  };
-
-  useEffect(() => {
-    if (!window) {
-      console.log("waiting for mount");
-    } else if (window) {
-      window.addEventListener("scroll", handleScroll);
-    }
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Mobile Menu Icon && Open/Close
   const [open, setOpen] = useState<boolean>(false);
@@ -69,6 +57,30 @@ const Header = (): JSX.Element => {
     }
   };
 
+  // User session and profile
+  const { data: session, status } = useSession();
+
+  const dispatch = useAppDispatch();
+
+  const reduxProfile: User = useAppSelector((state) => state.profile);
+
+  useEffect(() => {
+    // console.log("Session status: ", status, session);
+    if (status === "authenticated" && reduxProfile.id === "") {
+      dispatch(populateProfile(session.user));
+    }
+
+    // TODO: Incorporate a status check when a status is added to the profile slice.
+    // * Use the status state to more reliably handle when to call the removeProfile reducer.
+    if (
+      status === "unauthenticated" &&
+      (!session || session === null) &&
+      reduxProfile.id.length > 0
+    ) {
+      dispatch(removeProfile());
+    }
+  }, [dispatch, reduxProfile.id, session, status]);
+
   return (
     <Box
       zIndex={1}
@@ -81,13 +93,7 @@ const Header = (): JSX.Element => {
           ? "none"
           : "rgba(0, 134, 255, 0.75) 0px 0px 15px, rgba(0, 134, 255, 0.5) 0px 0px 3px 1px"
       }
-      bg={
-        open
-          ? "brand.main"
-          : transparentNavbar
-            ? "rgba(49, 56, 220, 0.9)"
-            : "brand.main"
-      }
+      bg={open ? "brand.main" : "rgba(49, 56, 220, 0.9)"}
       transition=".5s ease"
       borderRadius="0px 0px 10px 10px"
       _hover={{
@@ -97,6 +103,7 @@ const Header = (): JSX.Element => {
           : "rgba(0, 134, 255, 0.9) 0px 0px 15px, rgba(0, 134, 255, 0.7) 0px 0px 3px 1px"
       }}
       h={open ? "125px" : "auto"}
+      as="header"
     >
       {/* Logo | Site Name */}
       <HStack
@@ -118,7 +125,7 @@ const Header = (): JSX.Element => {
       >
         <Image height="30" width="30" src={appLogo} alt="App Logo" />
 
-        <Heading as="h1" size="md" fontFamily={fonts.LCM} fontWeight="400">
+        <Heading as="h1" size="md">
           {appName}
         </Heading>
         <Heading color="whiteAlpha.500" as="h2" size="sm">
@@ -152,12 +159,7 @@ const Header = (): JSX.Element => {
               }}
             >
               <Image height="30" width="30" src={appLogo} alt="App Logo" />
-              <Heading
-                as="h1"
-                size="md"
-                fontFamily={fonts.LCM}
-                fontWeight="400"
-              >
+              <Heading as="h1" size="md">
                 {appName}
               </Heading>
               <Heading color="whiteAlpha.500" as="h2" size="sm">
@@ -177,8 +179,6 @@ const Header = (): JSX.Element => {
               base: "inline-flex",
               lg: "none"
             }}
-            bg={transparentNavbar ? "transparent" : "rgba(255, 255, 255, .15)"}
-            border={transparentNavbar ? "1px solid #0068ff" : "none"}
             variant="mobileNav"
             type="button"
             onClick={() => setOpen(!open)}
@@ -187,6 +187,70 @@ const Header = (): JSX.Element => {
           />
           <MobileNav updateOpen={setOpen} />
         </Menu>
+        <Box alignItems="center">
+          <Popover
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            onOpen={() => {
+              if (!session) {
+                router.push("/auth/signin");
+                setIsOpen(false);
+              }
+
+              if (session) {
+                setIsOpen(true);
+              }
+            }}
+          >
+            <PopoverTrigger>
+              <Button
+                rounded="full"
+                variant="nav"
+                cursor="pointer"
+                p={0}
+                m={0}
+                type="button"
+              >
+                {session ? (
+                  status === "loading" ? (
+                    <SkeletonCircle size="1.5rem" />
+                  ) : session.user ? (
+                    <Text fontSize="2rem">
+                      <Icon
+                        icon="carbon:user-avatar-filled"
+                        color="lightgreen"
+                      />
+                    </Text>
+                  ) : (
+                    <Text fontSize="2rem">
+                      <Icon icon="carbon:user-avatar-filled-alt" />
+                    </Text>
+                  )
+                ) : (
+                  <Text fontSize="2rem">
+                    <Icon icon="carbon:user-avatar-filled-alt" />
+                  </Text>
+                )}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent mt={2} mr={4} textAlign="center">
+              {/* <PopoverArrow /> */}
+              <PopoverCloseButton />
+              <PopoverHeader>{"User Actions"}</PopoverHeader>
+              <PopoverBody>
+                <CustomButton
+                  text={"Profile"}
+                  link={"/profile"}
+                  type={"primary"}
+                  newTab={false}
+                />
+              </PopoverBody>
+              <PopoverFooter>
+                <SignOutButton />
+              </PopoverFooter>
+            </PopoverContent>
+          </Popover>
+        </Box>
       </HStack>
     </Box>
   );

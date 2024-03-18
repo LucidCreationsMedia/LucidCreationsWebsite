@@ -4,6 +4,12 @@ import CustomButton from "./Custom";
 import links, { LinkObj } from "./data/links";
 import KoFi from "./KoFi";
 
+/**
+ * Displays buttons about the app such as links to Patreon, development roadmap,
+ * Twitter, etc.
+ * @returns buttons to take the user to external resources for the app.
+ */
+
 const Buttons = (): JSX.Element => {
   return (
     <Box h="auto" w="100%">
@@ -25,6 +31,7 @@ const Buttons = (): JSX.Element => {
                 link={href}
                 text={name}
                 type={type}
+                newTab={true}
               />
             );
           }
@@ -52,6 +59,7 @@ const Buttons = (): JSX.Element => {
                 link={href}
                 text={name}
                 type={type}
+                newTab={true}
               />
             );
           }
