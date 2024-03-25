@@ -1,7 +1,9 @@
 import React from "react";
+import Image from "next/image";
 import { Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import BrandText from "../../theme/components/BrandText";
 import { Icon } from "@iconify/react";
+import mp3SVG from "../../../public/images/mp3.svg";
 
 const WhatIMakeBanner = (): JSX.Element => {
   return (
@@ -51,7 +53,7 @@ const WhatIMakeBanner = (): JSX.Element => {
             </HStack>
             <HStack spacing="4" w="100%">
               <Text fontSize="5xl">
-                <Icon icon="ic:baseline-telegram" />
+                <Image height="35" width="35" src={mp3SVG} alt="MP3 Icon" />
               </Text>
               <BrandText type="Text" size="xl" text={"Hypno Audio Files"} />
             </HStack>
