@@ -22,12 +22,11 @@ const sendWelcomeEmail = (userEmail: string, name = "User"): void => {
   const message = {
     from: `"Lucid Creations Media no-reply" <${process.env.EMAIL_FROM}>`,
     to: `${userEmail}`,
-    subject: `Hello ${name}, welcome to Lucid Creations Media's latest app in development.`,
+    subject: `Hello ${name}, welcome to the new LCM Website.`,
     html: `
     <div>
       <p>Hello ${name},</p>
-      <p>Welcome to the latest Lucid Creations Media app in development. Code Name: Potty Chart.</p>
-      <p>You are receiving this email because your email was used to register and activate an account within the app.</p>
+      <p>You are receiving this email as a confirmation of your account activation and setup.</p>
     </div>
     `
   };

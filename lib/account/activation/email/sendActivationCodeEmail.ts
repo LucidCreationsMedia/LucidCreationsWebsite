@@ -26,7 +26,7 @@ const sendActivationCodeEmail = (
   const message = {
     from: `"Lucid Creations Media no-reply" <${process.env.EMAIL_FROM}>`,
     to: `${userEmail}`,
-    subject: `Hello ${name}, please activate your account for LCM Potty Chart with the link provided.`,
+    subject: `Hello ${name}, please activate your account for The new LCM Website with the link provided.`,
     html: `
     <div>
       <p>You are receiving this email because your email was used to register an account within our app.</p>
