@@ -1,4 +1,4 @@
-import checkUsernameAvailible from "./checkUsernameAvailible";
+import checkUsernameAvailable from "./checkUsernameAvailable";
 import editUserProfile, {
   EditUserProfileProps
 } from "../api/mutation/profile/editUserProfile";
@@ -30,11 +30,11 @@ const generateUsername = async (username: string): Promise<string> => {
   while (!validFlag) {
     const nums = genNumbers();
 
-    if (await checkUsernameAvailible(newUsername + nums)) {
+    if (await checkUsernameAvailable(newUsername + nums)) {
       newUsername = newUsername + nums;
       validFlag = true;
       break;
-    } else if (await checkUsernameAvailible(nums + newUsername)) {
+    } else if (await checkUsernameAvailable(nums + newUsername)) {
       newUsername = nums + newUsername;
       validFlag = true;
       break;
@@ -55,6 +55,8 @@ const generateProfile = async (
   const newUserProfile: EditUserProfileProps = Object.assign(userProfile);
   const { userId, name, bio } = newUserProfile;
   const newUsername: string = await generateUsername(userProfile.username);
+
+  // TODO: Check if the username is available first before using the generated username.
 
   newUserProfile.username = newUsername;
 

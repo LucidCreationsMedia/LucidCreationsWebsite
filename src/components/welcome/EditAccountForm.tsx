@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Form, Field, FieldProps } from "formik";
 import editUserProfile from "../../../lib/api/mutation/profile/editUserProfile";
-import checkUsernameAvailible from "../../../lib/profile/checkUsernameAvailible";
+import checkUsernameAvailable from "../../../lib/profile/checkUsernameAvailible";
 import { generateUsername } from "../../../lib/profile/generateProfile";
 import { Icon } from "@iconify/react";
 
@@ -48,7 +48,7 @@ const EditAccountForm = ({
   username,
   bio
 }: // loading
-EditAccountProps): JSX.Element => {
+  EditAccountProps): JSX.Element => {
   // TODO: Make hstacks for mobile responsiveness.
   const dispatch = useAppDispatch();
 
@@ -122,7 +122,7 @@ EditAccountProps): JSX.Element => {
     } else {
       if (newUsername !== username) {
         setCheckingUsername(true);
-        if (await checkUsernameAvailible(newUsername)) {
+        if (await checkUsernameAvailable(newUsername)) {
           setValidUsername(true);
         } else {
           errorMessage =
@@ -293,13 +293,13 @@ EditAccountProps): JSX.Element => {
                           isDisabled={form.isSubmitting}
                           {...(!form.errors.name && form.touched.name
                             ? {
+                              borderColor: "brand.valid",
+                              boxShadow: "0 0 0 1px #00c17c",
+                              _hover: {
                                 borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c",
-                                _hover: {
-                                  borderColor: "brand.valid",
-                                  boxShadow: "0 0 0 1px #00c17c"
-                                }
+                                boxShadow: "0 0 0 1px #00c17c"
                               }
+                            }
                             : "")}
                         />
                         <InputRightElement>
@@ -366,13 +366,13 @@ EditAccountProps): JSX.Element => {
                           isDisabled={form.isSubmitting}
                           {...(validUsername
                             ? {
+                              borderColor: "brand.valid",
+                              boxShadow: "0 0 0 1px #00c17c",
+                              _hover: {
                                 borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c",
-                                _hover: {
-                                  borderColor: "brand.valid",
-                                  boxShadow: "0 0 0 1px #00c17c"
-                                }
+                                boxShadow: "0 0 0 1px #00c17c"
                               }
+                            }
                             : "")}
                         />
                         <InputRightElement>
@@ -473,13 +473,13 @@ EditAccountProps): JSX.Element => {
                         placeholder="I am a furry looking to track my weekly chores and reward myself with pretty stickers and praise from friends."
                         {...(!form.errors.bio && form.touched.bio
                           ? {
+                            borderColor: "brand.valid",
+                            boxShadow: "0 0 0 1px #00c17c",
+                            _hover: {
                               borderColor: "brand.valid",
-                              boxShadow: "0 0 0 1px #00c17c",
-                              _hover: {
-                                borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c"
-                              }
+                              boxShadow: "0 0 0 1px #00c17c"
                             }
+                          }
                           : "")}
                       />
                       <FormErrorMessage>
