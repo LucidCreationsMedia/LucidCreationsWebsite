@@ -3,6 +3,7 @@ import { Box, HStack, VStack } from "@chakra-ui/react";
 import CustomButton from "./Custom";
 import links, { LinkObj } from "./data/links";
 import KoFi from "./KoFi";
+import GitHub from "./GitHub";
 
 const Buttons = (): JSX.Element => {
   return (
@@ -32,6 +33,10 @@ const Buttons = (): JSX.Element => {
           if (type === "ko-fi") {
             return <KoFi key={type} />;
           }
+
+          if (type === "GitHub") {
+            return <GitHub key={type} />;
+          }
         })}
       </HStack>
       <VStack
@@ -58,6 +63,10 @@ const Buttons = (): JSX.Element => {
 
           if (type === "ko-fi") {
             return <KoFi key={type} />;
+          }
+
+          if (type === "GitHub") {
+            return <GitHub key={type} />;
           }
         })}
       </VStack>
