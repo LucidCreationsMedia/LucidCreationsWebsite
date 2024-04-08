@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Form, Field, FieldProps } from "formik";
 import editUserProfile from "../../../lib/api/mutation/profile/editUserProfile";
-import checkUsernameAvailable from "../../../lib/profile/checkUsernameAvailible";
+import checkUsernameAvailable from "../../../lib/profile/checkUsernameAvailable";
 import { generateUsername } from "../../../lib/profile/generateProfile";
 import { Icon } from "@iconify/react";
 
@@ -50,6 +50,8 @@ const EditAccountForm = ({
 }: // loading
 EditAccountProps): JSX.Element => {
   // TODO: Make hstacks for mobile responsiveness.
+  // TODO: Display a "check username availible" button when username is attempted to be changed.
+  // Display alternative names if the username is already taken.
   const dispatch = useAppDispatch();
 
   // Form field valid statuses.
@@ -197,6 +199,7 @@ EditAccountProps): JSX.Element => {
   // ! Add a "preview changes" button that doesn't submit the changes.
   // ! Add a "reset preview" button that changes the profile header back to values form the session.
   // ! Add a clear changes button that clears the changes the user has made.
+  // ? Add a check username button?
 
   return (
     <Formik

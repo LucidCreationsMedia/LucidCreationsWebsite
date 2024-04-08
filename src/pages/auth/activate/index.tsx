@@ -21,6 +21,7 @@ interface Errors {
 // If token is valid add an "activate account" button.
 // If token is not valid for any reason display a generic error message and display the reset token button.
 // Clean up deprecated code with this update and remove unused params if necessary.
+// Edge case: display a "create token" button if the account doesn't have an activation token for whatever reason.
 
 /**
  * This is a fallback activation component for user to manually input their activation token
