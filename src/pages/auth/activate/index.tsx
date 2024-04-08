@@ -16,6 +16,11 @@ interface Errors {
 }
 
 // TODO: Check if the account is activated. Take them to the welcome page if it is. Add the resend activation token button. Align the buttons properly.
+// TODO: Redesign the manual activation token component:
+// Add a verify token step. Which will take the input token ID and fetch the token for the singed in used and see if the token is valid.
+// If token is valid add an "activate account" button.
+// If token is not valid for any reason display a generic error message and display the reset token button.
+// Clean up deprecated code with this update and remove unused params if necessary.
 
 /**
  * This is a fallback activation component for user to manually input their activation token

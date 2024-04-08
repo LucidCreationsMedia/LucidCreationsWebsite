@@ -48,7 +48,7 @@ const EditAccountForm = ({
   username,
   bio
 }: // loading
-  EditAccountProps): JSX.Element => {
+EditAccountProps): JSX.Element => {
   // TODO: Make hstacks for mobile responsiveness.
   const dispatch = useAppDispatch();
 
@@ -293,13 +293,13 @@ const EditAccountForm = ({
                           isDisabled={form.isSubmitting}
                           {...(!form.errors.name && form.touched.name
                             ? {
-                              borderColor: "brand.valid",
-                              boxShadow: "0 0 0 1px #00c17c",
-                              _hover: {
                                 borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c"
+                                boxShadow: "0 0 0 1px #00c17c",
+                                _hover: {
+                                  borderColor: "brand.valid",
+                                  boxShadow: "0 0 0 1px #00c17c"
+                                }
                               }
-                            }
                             : "")}
                         />
                         <InputRightElement>
@@ -366,13 +366,13 @@ const EditAccountForm = ({
                           isDisabled={form.isSubmitting}
                           {...(validUsername
                             ? {
-                              borderColor: "brand.valid",
-                              boxShadow: "0 0 0 1px #00c17c",
-                              _hover: {
                                 borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c"
+                                boxShadow: "0 0 0 1px #00c17c",
+                                _hover: {
+                                  borderColor: "brand.valid",
+                                  boxShadow: "0 0 0 1px #00c17c"
+                                }
                               }
-                            }
                             : "")}
                         />
                         <InputRightElement>
@@ -473,13 +473,13 @@ const EditAccountForm = ({
                         placeholder="I am a furry looking to track my weekly chores and reward myself with pretty stickers and praise from friends."
                         {...(!form.errors.bio && form.touched.bio
                           ? {
-                            borderColor: "brand.valid",
-                            boxShadow: "0 0 0 1px #00c17c",
-                            _hover: {
                               borderColor: "brand.valid",
-                              boxShadow: "0 0 0 1px #00c17c"
+                              boxShadow: "0 0 0 1px #00c17c",
+                              _hover: {
+                                borderColor: "brand.valid",
+                                boxShadow: "0 0 0 1px #00c17c"
+                              }
                             }
-                          }
                           : "")}
                       />
                       <FormErrorMessage>
