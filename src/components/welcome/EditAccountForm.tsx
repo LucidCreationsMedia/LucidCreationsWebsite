@@ -21,7 +21,7 @@ import {
 import { Formik, Form, Field, FieldProps } from "formik";
 import editUserProfile from "../../../lib/api/mutation/profile/editUserProfile";
 import checkUsernameAvailable from "../../../lib/profile/checkUsernameAvailable";
-import { generateUsername } from "../../../lib/profile/generateProfile";
+import { generateNewUsername } from "../../../lib/profile/generateProfile";
 import { Icon } from "@iconify/react";
 
 interface EditAccountProps {
@@ -48,7 +48,7 @@ const EditAccountForm = ({
   username,
   bio
 }: // loading
-EditAccountProps): JSX.Element => {
+  EditAccountProps): JSX.Element => {
   // TODO: Make hstacks for mobile responsiveness.
   // TODO: Display a "check username availible" button when username is attempted to be changed.
   // Display alternative names if the username is already taken.
@@ -91,7 +91,7 @@ EditAccountProps): JSX.Element => {
     }
 
     for (let i = suggestions.length; i < 4; i++) {
-      await generateUsername(username).then((newUsername) => {
+      await generateNewUsername(username).then((newUsername) => {
         suggestions[suggestions.length] = newUsername;
       });
     }
@@ -103,7 +103,8 @@ EditAccountProps): JSX.Element => {
   };
 
   const validateUsername = async (
-    newUsername: string
+    newUsername: string,
+    fetchCheckUsernameAvailable?: boolean
   ): Promise<string | undefined> => {
     let errorMessage: string;
 
@@ -122,17 +123,18 @@ EditAccountProps): JSX.Element => {
       errorMessage = "Username must be between 3 and 25 characters.";
       setValidUsername(false);
     } else {
-      if (newUsername !== username) {
-        setCheckingUsername(true);
-        if (await checkUsernameAvailable(newUsername)) {
-          setValidUsername(true);
-        } else {
-          errorMessage =
-            "This username already exits. Please try another username or pick from one of the suggestions.";
-          setValidUsername(false);
-          generateSuggestedUsernames(newUsername).then((usernames) => {
-            setUsernameSuggestions(usernames);
-          });
+      if (fetchCheckUsernameAvailable) {
+        if (newUsername !== username) {
+          if (await checkUsernameAvailable(newUsername)) {
+            setValidUsername(true);
+          } else {
+            errorMessage =
+              "This username already exits. Please try another username or pick from one of the suggestions.";
+            setValidUsername(false);
+            generateSuggestedUsernames(newUsername).then((usernames) => {
+              setUsernameSuggestions(usernames);
+            });
+          }
         }
       } else {
         setValidUsername(true);
@@ -199,7 +201,6 @@ EditAccountProps): JSX.Element => {
   // ! Add a "preview changes" button that doesn't submit the changes.
   // ! Add a "reset preview" button that changes the profile header back to values form the session.
   // ! Add a clear changes button that clears the changes the user has made.
-  // ? Add a check username button?
 
   return (
     <Formik
@@ -274,7 +275,7 @@ EditAccountProps): JSX.Element => {
                     justifyContent="center"
                     alignItems="flex-start"
                   >
-                    <FormLabel fontSize="xl" w="6.5rem" htmlFor="name">
+                    <FormLabel fontSize="xl" w="7rem" htmlFor="name">
                       {"Name"}
                     </FormLabel>
                     <VStack
@@ -296,13 +297,13 @@ EditAccountProps): JSX.Element => {
                           isDisabled={form.isSubmitting}
                           {...(!form.errors.name && form.touched.name
                             ? {
+                              borderColor: "brand.valid",
+                              boxShadow: "0 0 0 1px #00c17c",
+                              _hover: {
                                 borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c",
-                                _hover: {
-                                  borderColor: "brand.valid",
-                                  boxShadow: "0 0 0 1px #00c17c"
-                                }
+                                boxShadow: "0 0 0 1px #00c17c"
                               }
+                            }
                             : "")}
                         />
                         <InputRightElement>
@@ -346,7 +347,7 @@ EditAccountProps): JSX.Element => {
                     justifyContent="center"
                     alignItems="flex-start"
                   >
-                    <FormLabel fontSize="xl" w="6.5rem" htmlFor="username">
+                    <FormLabel fontSize="xl" w="7rem" htmlFor="username">
                       {"Username"}
                     </FormLabel>
                     <VStack
@@ -366,27 +367,30 @@ EditAccountProps): JSX.Element => {
                           id="username"
                           name="username"
                           placeholder="JaneDoe"
-                          isDisabled={form.isSubmitting}
+                          isDisabled={form.isSubmitting || checkingUsername}
+                          onBlur={() => {
+                            validateUsername(field.value, true);
+                          }}
                           {...(validUsername
                             ? {
+                              borderColor: "brand.valid",
+                              boxShadow: "0 0 0 1px #00c17c",
+                              _hover: {
                                 borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c",
-                                _hover: {
-                                  borderColor: "brand.valid",
-                                  boxShadow: "0 0 0 1px #00c17c"
-                                }
+                                boxShadow: "0 0 0 1px #00c17c"
                               }
+                            }
                             : "")}
                         />
                         <InputRightElement>
                           <Tooltip label="Check if this username is valid">
                             <Button
                               isLoading={checkingUsername}
-                              type="submit"
-                              variant="submit"
+                              type="button"
+                              variant="fetch"
                               onClick={() => {
                                 if (field.value !== username) {
-                                  validateUsername(field.value);
+                                  validateUsername(field.value, true);
                                 }
                                 form.setTouched({
                                   ...form.touched,
@@ -457,7 +461,7 @@ EditAccountProps): JSX.Element => {
                     justifyContent="center"
                     alignItems="flex-start"
                   >
-                    <FormLabel fontSize="xl" w="6.5rem" htmlFor="bio">
+                    <FormLabel fontSize="xl" w="7rem" htmlFor="bio">
                       {"Bio"}
                     </FormLabel>
                     <VStack
@@ -476,13 +480,13 @@ EditAccountProps): JSX.Element => {
                         placeholder="I am a furry looking to track my weekly chores and reward myself with pretty stickers and praise from friends."
                         {...(!form.errors.bio && form.touched.bio
                           ? {
+                            borderColor: "brand.valid",
+                            boxShadow: "0 0 0 1px #00c17c",
+                            _hover: {
                               borderColor: "brand.valid",
-                              boxShadow: "0 0 0 1px #00c17c",
-                              _hover: {
-                                borderColor: "brand.valid",
-                                boxShadow: "0 0 0 1px #00c17c"
-                              }
+                              boxShadow: "0 0 0 1px #00c17c"
                             }
+                          }
                           : "")}
                       />
                       <FormErrorMessage>
