@@ -9,7 +9,7 @@ import editUserProfile, {
  * @param {string } username the username to make a variation of
  * @returns {string} the modified username.
  */
-const generateUsername = async (username: string): Promise<string> => {
+const generateNewUsername = async (username: string): Promise<string> => {
   let newUsername: string = username;
   let validFlag: boolean = false;
 
@@ -53,10 +53,10 @@ const generateProfile = async (
   userProfile: EditUserProfileProps
 ): Promise<void> => {
   const newUserProfile: EditUserProfileProps = Object.assign(userProfile);
-  const { userId, name, bio } = newUserProfile;
-  const newUsername: string = await generateUsername(userProfile.username);
-
-  // TODO: Check if the username is available first before using the generated username.
+  const { userId, name, bio, username } = newUserProfile;
+  const newUsername: string = (await checkUsernameAvailable(username))
+    ? username
+    : await generateNewUsername(username);
 
   newUserProfile.username = newUsername;
 
@@ -64,4 +64,4 @@ const generateProfile = async (
 };
 
 export default generateProfile;
-export { generateUsername };
+export { generateNewUsername };
