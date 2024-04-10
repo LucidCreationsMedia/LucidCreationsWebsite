@@ -46,18 +46,6 @@ const buttonStyles = {
         color: "whiteAlpha.900"
       }
     }),
-    stickerButton: (props: Dict<never>) => ({
-      bg: "transparent",
-      fontSize: "4rem",
-      px: 2,
-      py: 14,
-      _hover: {
-        bg: mode(
-          whiten("brand.secondary", 20),
-          darken("brand.secondary", 20)
-        )(props)
-      }
-    }),
     nav: (props: Dict<never>) => ({
       bg: "transparent",
       fontSize: "md",
@@ -124,6 +112,19 @@ const buttonStyles = {
             "rgba(252, 129, 129, .95) 0px 0px 15px, rgba(252, 129, 129, 0.75) 0px 0px 3px 1px",
           border: "1px solid #FC8181"
         }
+      }
+    }),
+    fetch: (props: Dict<never>) => ({
+      bg: "whiteAlpha.300",
+      fontSize: "xl",
+      py: 3,
+      px: 4,
+      color: "whiteAlpha",
+      _hover: {
+        bg: mode(
+          whiten("whiteAlpha.300", 20),
+          darken("whiteAlpha.300", 20)
+        )(props)
       }
     }),
     mobileNav: (props: Dict<never>) => ({
